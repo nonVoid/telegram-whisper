@@ -1,0 +1,6 @@
+/tmp/*
+/.env
+*.session
+/env/
+.idea
+.DS_Store
