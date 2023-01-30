@@ -50,14 +50,12 @@ class WhisperGerman:
 
     def transcribe(self, file_path: str):
         result = self.model.transcribe(file_path)
-        print(result)
         return result["text"]
 
     async def send_message(self, chat_id: str, reply_to: Optional[Message], message: str):
         await self.client.send_message(entity=chat_id, reply_to=reply_to, message=message)
 
     async def process(self, event: events.NewMessage.Event):
-        print(event)
         voice_return_data = await self.load_voice_message(event=event)
         if voice_return_data is None:
             return
